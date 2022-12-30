@@ -3,13 +3,12 @@ package com.rebel.DataPersistenceDemo.entities;
 import org.hibernate.annotations.Nationalized;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Delivery
@@ -27,6 +26,9 @@ public class Delivery
     private LocalDateTime deliveryTime;
     @Type(type = "yes_no")
     private Boolean completed;
+
+    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY)
+    List<Plant> plants = new ArrayList<>();
 
     public Delivery() {
     }
@@ -69,5 +71,13 @@ public class Delivery
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public List<Plant> getPlants() {
+        return plants;
+    }
+
+    public void setPlants(List<Plant> plants) {
+        this.plants = plants;
     }
 }
