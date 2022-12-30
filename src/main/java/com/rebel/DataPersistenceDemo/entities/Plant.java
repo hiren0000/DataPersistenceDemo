@@ -1,5 +1,7 @@
 package com.rebel.DataPersistenceDemo.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.rebel.DataPersistenceDemo.payloads.Views;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
@@ -13,9 +15,11 @@ public class Plant
     @GeneratedValue
     private Long id;
 
+    @JsonView(Views.Public.class)
     @Nationalized
     private String name;
 
+    @JsonView(Views.Public.class)
     @Column(precision = 12, scale = 4)
     private BigDecimal price;
 

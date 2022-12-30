@@ -11,6 +11,11 @@ public class PlantService
         return new Plant();
     }
 
+    public Plant getFilteredPlant(String name)
+    {
+        return new Plant();
+    }
+
 
 
 }
