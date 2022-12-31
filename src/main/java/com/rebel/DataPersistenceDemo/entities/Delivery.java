@@ -27,7 +27,8 @@ public class Delivery
     @Type(type = "yes_no")
     private Boolean completed;
 
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY)
+    // implemented cascade type so any associated entity will be automatically removed
+    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY , cascade = CascadeType.REMOVE)
     List<Plant> plants = new ArrayList<>();
 
     public Delivery() {
