@@ -10,6 +10,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@NamedQuery(name="Delivery.findByName",
+              query = "select d from Delivery d where d.name =: name")
+
 @Entity
 public class Delivery
 {
@@ -27,8 +31,8 @@ public class Delivery
     @Type(type = "yes_no")
     private Boolean completed;
 
-    // implemented cascade type so any associated entity will be automatically removed
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY , cascade = CascadeType.REMOVE)
+    // implemented cascade type so any associated entity will be automatically changed
+    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     List<Plant> plants = new ArrayList<>();
 
     public Delivery() {
