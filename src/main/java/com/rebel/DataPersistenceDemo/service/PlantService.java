@@ -29,9 +29,9 @@ public class PlantService
    }
 
     //checking if plant is delivered
-    public boolean plantDeliverd(Long id)
+    public Boolean plantDeliverd(Long id, Boolean delivred)
     {
-        return this.repo.isPlantDelivered(id);
+        return this.repo.isPlantDelivered(id, delivred);
     }
 
 }
