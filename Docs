@@ -1,3 +1,7 @@
-Spring Boot wiht H2 database 
+Spring Boot JPA Demo
+
+
 implementing Entities 
 Learning JPA specially using Hibernate
+Implemented NameQuery and Criterail Builder
+And also added H2 in memory DB for Testing
